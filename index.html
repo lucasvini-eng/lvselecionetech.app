@@ -3,855 +3,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Center Ótica Palmas | Óculos, Lentes e Atendimento Especializado</title>
+    <title>RD Auto Mecânica (SLZ) | Serviços e Atendimento Automotivo</title>
+    <meta name="description" content="Entre em contato com a RD Auto Mecânica (SLZ), conheça nossos serviços automotivos e solicite atendimento pelo WhatsApp.">
     
-    <!-- Meta SEO -->
-    <meta name="description" content="Sua visão merece o melhor cuidado. Óculos de grau, óculos de sol, lentes e consertos em geral em Palmas. Peça seu orçamento via WhatsApp!">
-    <meta name="theme-color" content="#000000">
-    <meta property="og:title" content="Center Ótica Palmas | Link na Bio">
-    <meta property="og:description" content="Solicite seu orçamento, envie sua receita e fale diretamente com nossos especialistas.">
-    <meta property="og:type" content="website">
-
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#ffffff',
-                            100: '#f4f4f5',
-                            200: '#e4e4e7',
-                            500: '#ffffff', // Branco Alto Contraste
-                            600: '#d4d4d8',
-                            900: '#000000', // Preto Puro
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'glow': '0 0 25px -3px rgba(255, 255, 255, 0.25)',
-                        'glow-white': '0 0 20px 0px rgba(255, 255, 255, 0.35)',
+                        primary: 'var(--color-primary)',
+                        secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)',
+                        background: 'var(--color-background)',
+                        surface: 'var(--color-surface)',
+                        muted: 'var(--color-text-muted)',
                     }
                 }
             }
         }
     </script>
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Google Font Inter -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --color-primary: #dc2626;
+            --color-secondary: #1f2937;
+            --color-accent: #ef4444;
+            --color-background: #0b0f17;
+            --color-surface: #131b2e;
+            --color-text: #f3f4f6;
+            --color-text-muted: #9ca3af;
+            --color-success: #22c55e;
+            --color-border: #2d3748;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #FFFFFF;
-            -webkit-tap-highlight-color: transparent;
+            background-color: var(--color-background);
+            color: var(--color-text);
         }
 
-        .glass-card {
-            background: rgba(18, 18, 18, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+        .custom-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
         }
-
-        .glass-card-interactive {
-            background: rgba(24, 24, 27, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card-interactive:hover, .glass-card-interactive:active {
-            border-color: rgba(255, 255, 255, 0.6);
+        .custom-card:hover {
+            border-color: var(--color-primary);
             transform: translateY(-2px);
-            background: rgba(39, 39, 42, 0.9);
-        }
-
-        .step-transition {
-            transition: all 0.35s ease-in-out;
-        }
-
-        .pulse-white {
-            animation: pulseWhite 2.2s infinite;
-        }
-
-        @keyframes pulseWhite {
-            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
-            70% { box-shadow: 0 0 0 16px rgba(255, 255, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-        }
-
-        /* Drag & Drop highlight em Preto e Branco */
-        .drag-over {
-            border-color: #FFFFFF !important;
-            background-color: rgba(255, 255, 255, 0.08) !important;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-start pb-24 antialiased selection:bg-white selection:text-black">
+<body class="min-h-screen flex flex-col antialiased selection:bg-red-600 selection:text-white">
 
-    <main class="w-full max-w-md md:max-w-xl lg:max-w-2xl px-4 py-6 space-y-6">
-
-        <!-- HEADER / BRAND HERO -->
-        <header class="glass-card rounded-3xl p-6 text-center relative overflow-hidden shadow-2xl border border-white/15">
-            <!-- Ambient Monochrome Glow -->
-            <div class="absolute -top-16 -left-16 w-32 h-32 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-16 -right-16 w-32 h-32 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
-
-            <!-- Logo em Preto e Branco -->
-            <div class="relative z-10 flex flex-col items-center">
-                <div class="w-20 h-20 rounded-2xl bg-black p-3.5 border border-white/30 shadow-glow flex items-center justify-center mb-4 transform hover:scale-105 transition-transform duration-300">
-                    <svg viewBox="0 0 100 100" class="w-full h-full fill-white">
-                        <!-- Eye outline curve -->
-                        <path d="M 10 35 C 30 15, 70 15, 90 35 C 70 55, 30 55, 10 35 Z M 10 35 C 35 25, 65 25, 90 35" fill="none" stroke="white" stroke-width="8" stroke-linecap="round"/>
-                        <!-- Eyebrow accent -->
-                        <path d="M 12 25 C 35 12, 65 12, 88 22 C 70 18, 30 18, 12 25 Z" fill="white"/>
-                        <!-- Pupil -->
-                        <circle cx="50" cy="55" r="18" fill="white"/>
-                        <circle cx="50" cy="55" r="7" fill="#000000"/>
-                    </svg>
-                </div>
-
-                <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
-                    Center Ótica <span class="text-zinc-400 font-light text-xl md:text-2xl">Palmas</span>
-                </h1>
-                
-                <p class="text-xs font-semibold uppercase tracking-widest text-zinc-400 mt-1 mb-3">
-                    Armações • Óculos de Sol • Consertos
-                </p>
-
-                <p class="text-sm text-zinc-300 max-w-sm leading-relaxed mb-5">
-                    Sua visão merece o melhor cuidado. Atendimento personalizado para você enxergar melhor e escolher com confiança.
-                </p>
-
-                <!-- Action Buttons Header -->
-                <div class="w-full grid grid-cols-2 gap-3 pt-2">
-                    <a href="#funnel-section" onclick="setFunnelService('Fazer Orçamento')" class="flex items-center justify-center gap-2 bg-white hover:bg-zinc-200 text-black font-extrabold text-xs md:text-sm py-3 px-4 rounded-xl shadow-glow-white transition-all active:scale-95">
-                        <i data-lucide="calculator" class="w-4 h-4 text-emerald-600"></i>
-                        Fazer Orçamento
-                    </a>
-                    <a href="#receita-section" class="flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold text-xs md:text-sm py-3 px-4 rounded-xl transition-all active:scale-95">
-                        <i data-lucide="file-text" class="w-4 h-4 text-amber-400"></i>
-                        Enviar Receita
-                    </a>
-                </div>
-            </div>
-        </header>
-
-        <!-- SEÇÃO 1: LEAD FUNNEL (3 STEPS) -->
-        <section id="funnel-section" class="glass-card rounded-3xl p-5 md:p-6 shadow-xl border border-white/15 relative">
-            
-            <!-- Step Progress Header -->
-            <div class="mb-5">
-                <div class="flex items-center justify-between text-xs font-semibold text-zinc-400 mb-2">
-                    <span id="step-indicator-text" class="text-white font-bold">Passo 1 de 3</span>
-                    <span id="step-title-text" class="text-zinc-300">Qualificação Inicial</span>
-                </div>
-                <!-- Progress Bar Monocromática -->
-                <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden border border-zinc-700">
-                    <div id="progress-bar" class="bg-white h-full w-1/3 transition-all duration-500 ease-out"></div>
-                </div>
-            </div>
-
-            <!-- STEP 1: O que você procura? -->
-            <div id="step-1" class="step-transition block">
-                <h2 class="text-lg font-bold text-white mb-1 flex items-center gap-2">
-                    <i data-lucide="search" class="w-5 h-5 text-sky-400"></i>
-                    O que você está procurando?
-                </h2>
-                <p class="text-xs text-zinc-400 mb-4">Selecione uma opção para iniciar seu atendimento rápido:</p>
-
-                <div class="grid grid-cols-2 gap-2.5 mb-5" id="options-grid">
-                    <!-- Dynamic Selection Buttons com Ícones Coloridos -->
-                    <button type="button" onclick="selectServiceOption('Óculos de Grau')" class="service-opt-btn flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-left transition-all text-xs font-medium text-zinc-200">
-                        <div class="p-2 rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30 flex-shrink-0"><i data-lucide="glasses" class="w-4 h-4"></i></div>
-                        Óculos de Grau
-                    </button>
-                    <button type="button" onclick="selectServiceOption('Óculos de Sol')" class="service-opt-btn flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-left transition-all text-xs font-medium text-zinc-200">
-                        <div class="p-2 rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/30 flex-shrink-0"><i data-lucide="sun" class="w-4 h-4"></i></div>
-                        Óculos de Sol
-                    </button>
-                    <button type="button" onclick="selectServiceOption('Lentes de Contato')" class="service-opt-btn flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-left transition-all text-xs font-medium text-zinc-200">
-                        <div class="p-2 rounded-lg bg-teal-500/20 text-teal-400 border border-teal-500/30 flex-shrink-0"><i data-lucide="disc" class="w-4 h-4"></i></div>
-                        Lentes de Contato
-                    </button>
-                    <button type="button" onclick="selectServiceOption('Lentes para Óculos')" class="service-opt-btn flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-left transition-all text-xs font-medium text-zinc-200">
-                        <div class="p-2 rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30 flex-shrink-0"><i data-lucide="sparkles" class="w-4 h-4"></i></div>
-                        Lentes p/ Óculos
-                    </button>
-                    <button type="button" onclick="selectServiceOption('Armações')" class="service-opt-btn flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-left transition-all text-xs font-medium text-zinc-200">
-                        <div class="p-2 rounded-lg bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex-shrink-0"><i data-lucide="frame" class="w-4 h-4"></i></div>
-                        Armações
-                    </button>
-                    <button type="button" onclick="selectServiceOption('Consertos e Manutenção')" class="service-opt-btn flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-left transition-all text-xs font-medium text-zinc-200">
-                        <div class="p-2 rounded-lg bg-orange-500/20 text-orange-400 border border-orange-500/30 flex-shrink-0"><i data-lucide="wrench" class="w-4 h-4"></i></div>
-                        Consertos
-                    </button>
-                    <button type="button" onclick="selectServiceOption('Enviar Receita')" class="service-opt-btn flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-left transition-all text-xs font-medium text-zinc-200 col-span-2">
-                        <div class="p-2 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex-shrink-0"><i data-lucide="file-check-2" class="w-4 h-4"></i></div>
-                        Já tenho receita e quero orçamento rápido
-                    </button>
-                </div>
-
-                <button id="btn-step1-next" onclick="goToStep(2)" disabled class="w-full py-3 px-4 bg-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-zinc-200 text-black font-extrabold text-sm rounded-xl transition-all flex items-center justify-center gap-2">
-                    Continuar
-                    <i data-lucide="arrow-right" class="w-4 h-4 text-black"></i>
-                </button>
-            </div>
-
-            <!-- STEP 2: Dados de Contato -->
-            <div id="step-2" class="step-transition hidden">
-                <h2 class="text-lg font-bold text-white mb-1 flex items-center gap-2">
-                    <i data-lucide="user-check" class="w-5 h-5 text-emerald-400"></i>
-                    Como podemos te chamar?
-                </h2>
-                <p class="text-xs text-zinc-400 mb-4">Preencha abaixo para personalizarmos seu atendimento:</p>
-
-                <form id="lead-form" onsubmit="event.preventDefault(); goToStep(3);" class="space-y-3.5 mb-5">
-                    <div>
-                        <label for="lead-name" class="block text-xs font-medium text-zinc-300 mb-1">Seu Nome *</label>
-                        <input type="text" id="lead-name" required placeholder="Ex: Maria Silva" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl py-2.5 px-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white transition-colors">
-                    </div>
-
-                    <div>
-                        <label for="lead-phone" class="block text-xs font-medium text-zinc-300 mb-1">WhatsApp *</label>
-                        <input type="tel" id="lead-phone" required placeholder="(63) 99999-9999" oninput="maskPhone(this)" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl py-2.5 px-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-white transition-colors">
-                    </div>
-
-                    <div>
-                        <label for="lead-obs" class="block text-xs font-medium text-zinc-300 mb-1">Alguma observação? (Opcional)</label>
-                        <textarea id="lead-obs" rows="2" placeholder="Ex: Prefiro armação redonda preta..." class="w-full bg-zinc-950 border border-zinc-700 rounded-xl py-2 px-3 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-white transition-colors resize-none"></textarea>
-                    </div>
-
-                    <div class="flex items-start gap-2 pt-1">
-                        <input type="checkbox" id="lgpd-check" required class="mt-0.5 rounded border-zinc-700 bg-zinc-900 text-white focus:ring-white">
-                        <label for="lgpd-check" class="text-[11px] text-zinc-400 leading-tight">
-                            Concordo com o uso dos meus dados exclusivamente para elaboração do orçamento pela Center Ótica.
-                        </label>
-                    </div>
-                </form>
-
-                <div class="flex items-center gap-2">
-                    <button type="button" onclick="goToStep(1)" class="w-1/3 py-3 px-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold text-xs rounded-xl transition-all border border-zinc-700">
-                        Voltar
-                    </button>
-                    <button type="button" onclick="submitLeadStep2()" class="w-2/3 py-3 px-4 bg-white hover:bg-zinc-200 text-black font-extrabold text-sm rounded-xl transition-all flex items-center justify-center gap-2">
-                        Avançar
-                        <i data-lucide="arrow-right" class="w-4 h-4 text-black"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- STEP 3: Finalização / Redirecionamento -->
-            <div id="step-3" class="step-transition hidden text-center py-2">
-                <div class="w-14 h-14 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-3 shadow-glow-white">
-                    <i data-lucide="check-circle-2" class="w-8 h-8"></i>
-                </div>
-                <h2 class="text-xl font-bold text-white mb-1">Tudo Pronto!</h2>
-                <p class="text-xs text-zinc-300 mb-4 max-w-xs mx-auto">
-                    Montamos a sua solicitação. Clique no botão abaixo para conversar diretamente com nosso atendente no WhatsApp.
-                </p>
-
-                <!-- Summary Box -->
-                <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-left mb-5 space-y-1.5 text-xs">
-                    <div class="text-zinc-400">Serviço: <span id="summary-service" class="font-bold text-white"></span></div>
-                    <div class="text-zinc-400">Nome: <span id="summary-name" class="font-semibold text-zinc-200"></span></div>
-                    <div class="text-zinc-400">WhatsApp: <span id="summary-phone" class="font-semibold text-zinc-200"></span></div>
-                </div>
-
-                <a id="btn-whatsapp-final" href="#" target="_blank" onclick="trackEvent('WhatsApp_Funnel_Submit')" class="w-full py-3.5 px-4 bg-white hover:bg-zinc-200 text-black font-extrabold text-sm rounded-xl shadow-glow-white transition-all flex items-center justify-center gap-2 mb-3">
-                    <i data-lucide="message-circle" class="w-5 h-5 text-emerald-600"></i>
-                    Iniciar Conversa no WhatsApp
-                </a>
-
-                <button type="button" onclick="goToStep(1)" class="text-xs text-zinc-400 hover:text-white underline">
-                    Alterar informações
-                </button>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 2: ENVIO DA RECEITA DOS ÓCULOS -->
-        <section id="receita-section" class="glass-card rounded-3xl p-5 md:p-6 shadow-xl border border-white/15">
-            <div class="flex items-center gap-3 mb-2">
-                <div class="p-2.5 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                    <i data-lucide="file-text" class="w-6 h-6"></i>
-                </div>
-                <div>
-                    <h2 class="text-lg font-bold text-white">Já tem sua receita?</h2>
-                    <p class="text-xs text-zinc-400">Envie uma foto ou PDF e receba o orçamento exato.</p>
-                </div>
-            </div>
-
-            <div class="mt-4 space-y-3">
-                <!-- Drop Zone -->
-                <div id="drop-zone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)" onclick="document.getElementById('file-input').click()" class="border-2 border-dashed border-zinc-700 hover:border-white bg-zinc-950/80 rounded-2xl p-5 text-center cursor-pointer transition-all">
-                    
-                    <input type="file" id="file-input" accept="image/jpeg,image/png,image/jpg,application/pdf" class="hidden" onchange="handleFileSelect(event)">
-                    
-                    <div id="upload-idle" class="space-y-2">
-                        <div class="w-10 h-10 bg-amber-500/20 text-amber-400 rounded-full flex items-center justify-center mx-auto border border-amber-500/30">
-                            <i data-lucide="upload-cloud" class="w-5 h-5"></i>
-                        </div>
-                        <p class="text-xs font-medium text-zinc-200">
-                            Clique ou arraste a imagem da receita aqui
-                        </p>
-                        <p class="text-[10px] text-zinc-400">Aceitamos JPG, PNG ou PDF (Máx. 10MB)</p>
-                    </div>
-
-                    <!-- File Selected Preview Container -->
-                    <div id="upload-preview" class="hidden flex items-center justify-between bg-zinc-900 p-3 rounded-xl text-left border border-zinc-700">
-                        <div class="flex items-center gap-3 overflow-hidden">
-                            <div id="thumb-container" class="w-10 h-10 rounded bg-black border border-zinc-700 flex items-center justify-center flex-shrink-0 text-amber-400 font-bold text-xs overflow-hidden">
-                                <i data-lucide="file" class="w-5 h-5"></i>
-                            </div>
-                            <div class="truncate">
-                                <p id="file-name" class="text-xs font-semibold text-white truncate">receita.jpg</p>
-                                <p id="file-size" class="text-[10px] text-zinc-400">1.2 MB</p>
-                            </div>
-                        </div>
-                        <button type="button" onclick="event.stopPropagation(); removeSelectedFile();" class="p-1.5 hover:bg-zinc-800 text-zinc-400 hover:text-white rounded-lg transition-colors">
-                            <i data-lucide="x" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Privacy & Terms -->
-                <div class="flex items-start gap-2 pt-1">
-                    <input type="checkbox" id="lgpd-check-recipe" class="mt-0.5 rounded border-zinc-700 bg-zinc-900 text-white focus:ring-white">
-                    <label for="lgpd-check-recipe" class="text-[11px] text-zinc-400 leading-tight">
-                        Autorizo o envio da imagem para consulta prévia de orçamento via WhatsApp.
-                    </label>
-                </div>
-
-                <button id="btn-submit-recipe" onclick="sendRecipeToWhatsapp()" disabled class="w-full py-3 px-4 bg-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-zinc-200 text-black font-extrabold text-xs md:text-sm rounded-xl transition-all flex items-center justify-center gap-2 shadow-glow-white">
-                    <i data-lucide="send" class="w-4 h-4 text-emerald-600"></i>
-                    Enviar Receita para Orçamento
-                </button>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 3: PRINCIPAIS LINKS DE CONTATO -->
-        <section class="space-y-2.5">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-400 px-1">Fale com a gente</h3>
-
-            <div class="grid grid-cols-1 gap-2.5">
-                <!-- WhatsApp Primary -->
-                <a href="#" id="link-wsp-direct" onclick="trackEvent('Click_WhatsApp_Direct')" target="_blank" class="glass-card-interactive p-4 rounded-2xl flex items-center justify-between group border-l-4 border-l-emerald-500">
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-11 h-11 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center group-hover:scale-110 transition-transform font-bold">
-                            <i data-lucide="message-square" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white group-hover:text-zinc-200 transition-colors">Falar no WhatsApp</h4>
-                            <p class="text-xs text-zinc-400">Atendimento humanizado e resposta rápida</p>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-5 h-5 text-zinc-500 group-hover:text-white transition-colors"></i>
-                </a>
-
-                <!-- Instagram -->
-                <a href="#" id="link-instagram" target="_blank" onclick="trackEvent('Click_Instagram')" class="glass-card-interactive p-3.5 rounded-2xl flex items-center justify-between group">
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 border border-pink-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">Siga no Instagram</h4>
-                            <p class="text-[11px] text-zinc-400">@centeroticapalmas • Modelos e novidades</p>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500"></i>
-                </a>
-
-                <!-- Google Maps -->
-                <a href="#" id="link-maps" target="_blank" onclick="trackEvent('Click_Maps')" class="glass-card-interactive p-3.5 rounded-2xl flex items-center justify-between group">
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <i data-lucide="map-pin" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">Como Chegar (Google Maps)</h4>
-                            <p class="text-[11px] text-zinc-400">103 Sul Rua SO 05 Lt 13 Sala 01</p>
-                        </div>
-                    </div>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500"></i>
-                </a>
-
-                <div class="grid grid-cols-2 gap-2.5">
-                    <!-- Telefone -->
-                    <a href="#" id="link-phone" onclick="trackEvent('Click_Phone')" class="glass-card-interactive p-3 rounded-2xl flex items-center gap-2.5 group">
-                        <div class="w-9 h-9 rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center">
-                            <i data-lucide="phone" class="w-4 h-4"></i>
-                        </div>
-                        <div class="truncate">
-                            <h4 class="text-xs font-bold text-white">Ligar Agora</h4>
-                            <p class="text-[10px] text-zinc-400 truncate" id="text-phone-display">(82) 99640-2650</p>
-                        </div>
-                    </a>
-
-                    <!-- Agendamento -->
-                    <a href="#funnel-section" onclick="setFunnelService('Agendamento de Atendimento')" class="glass-card-interactive p-3 rounded-2xl flex items-center gap-2.5 group">
-                        <div class="w-9 h-9 rounded-lg bg-violet-500/20 text-violet-400 border border-violet-500/30 flex items-center justify-center">
-                            <i data-lucide="calendar" class="w-4 h-4"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">Agendar Visita</h4>
-                            <p class="text-[10px] text-zinc-400">Escolha o horário</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 4: NOSSOS SERVIÇOS -->
-        <section class="space-y-3 pt-2">
-            <div class="flex items-center justify-between px-1">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-400">Nossos Produtos & Serviços</h3>
-                <span class="text-[10px] text-zinc-300">Clique para consultar</span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-3">
-                <!-- Card 1 -->
-                <div class="glass-card p-4 rounded-2xl flex flex-col justify-between border border-white/10 hover:border-white transition-all">
-                    <div>
-                        <div class="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400 flex items-center justify-center mb-2">
-                            <i data-lucide="glasses" class="w-4 h-4"></i>
-                        </div>
-                        <h4 class="text-xs font-bold text-white mb-1">Óculos de Grau</h4>
-                        <p class="text-[11px] text-zinc-400 leading-tight mb-3">Armações modernas e lentes de altíssima precisão visual.</p>
-                    </div>
-                    <button type="button" onclick="setFunnelService('Óculos de Grau')" class="w-full py-1.5 px-2 bg-zinc-800 hover:bg-white hover:text-black text-zinc-200 text-[11px] font-semibold rounded-lg transition-all border border-zinc-700 hover:border-white">
-                        Tenho interesse
-                    </button>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="glass-card p-4 rounded-2xl flex flex-col justify-between border border-white/10 hover:border-white transition-all">
-                    <div>
-                        <div class="w-8 h-8 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center mb-2">
-                            <i data-lucide="sun" class="w-4 h-4"></i>
-                        </div>
-                        <h4 class="text-xs font-bold text-white mb-1">Óculos de Sol</h4>
-                        <p class="text-[11px] text-zinc-400 leading-tight mb-3">Proteção UV400 com máximo estilo e conforto para seus olhos.</p>
-                    </div>
-                    <button type="button" onclick="setFunnelService('Óculos de Sol')" class="w-full py-1.5 px-2 bg-zinc-800 hover:bg-white hover:text-black text-zinc-200 text-[11px] font-semibold rounded-lg transition-all border border-zinc-700 hover:border-white">
-                        Tenho interesse
-                    </button>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="glass-card p-4 rounded-2xl flex flex-col justify-between border border-white/10 hover:border-white transition-all">
-                    <div>
-                        <div class="w-8 h-8 rounded-lg bg-teal-500/20 border border-teal-500/30 text-teal-400 flex items-center justify-center mb-2">
-                            <i data-lucide="disc" class="w-4 h-4"></i>
-                        </div>
-                        <h4 class="text-xs font-bold text-white mb-1">Lentes de Contato</h4>
-                        <p class="text-[11px] text-zinc-400 leading-tight mb-3">Opções de descarte diário ou mensal com alto conforto hidratante.</p>
-                    </div>
-                    <button type="button" onclick="setFunnelService('Lentes de Contato')" class="w-full py-1.5 px-2 bg-zinc-800 hover:bg-white hover:text-black text-zinc-200 text-[11px] font-semibold rounded-lg transition-all border border-zinc-700 hover:border-white">
-                        Tenho interesse
-                    </button>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="glass-card p-4 rounded-2xl flex flex-col justify-between border border-white/10 hover:border-white transition-all">
-                    <div>
-                        <div class="w-8 h-8 rounded-lg bg-orange-500/20 border border-orange-500/30 text-orange-400 flex items-center justify-center mb-2">
-                            <i data-lucide="wrench" class="w-4 h-4"></i>
-                        </div>
-                        <h4 class="text-xs font-bold text-white mb-1">Consertos em Geral</h4>
-                        <p class="text-[11px] text-zinc-400 leading-tight mb-3">Ajuste de hastes, soldas, troca de plaquetas e manutenção.</p>
-                    </div>
-                    <button type="button" onclick="setFunnelService('Consertos em Geral')" class="w-full py-1.5 px-2 bg-zinc-800 hover:bg-white hover:text-black text-zinc-200 text-[11px] font-semibold rounded-lg transition-all border border-zinc-700 hover:border-white">
-                        Tenho interesse
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 5: DIFERENCIAIS -->
-        <section class="glass-card rounded-3xl p-5 space-y-4">
-            <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                <i data-lucide="shield-check" class="w-5 h-5 text-indigo-400"></i>
-                Por que escolher a Center Ótica Palmas?
-            </h3>
-
-            <div class="grid grid-cols-2 gap-3 text-xs">
-                <div class="flex items-start gap-2.5">
-                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                    <div>
-                        <p class="font-semibold text-zinc-200">Atendimento Exclusivo</p>
-                        <p class="text-[10px] text-zinc-400">Consultoria técnica na escolha da armação</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-2.5">
-                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                    <div>
-                        <p class="font-semibold text-zinc-200">Orçamento Rápido</p>
-                        <p class="text-[10px] text-zinc-400">Resposta em poucos minutos no WhatsApp</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-2.5">
-                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                    <div>
-                        <p class="font-semibold text-zinc-200">Garantia de Qualidade</p>
-                        <p class="text-[10px] text-zinc-400">Lentes certificadas das melhores marcas</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-2.5">
-                    <i data-lucide="check" class="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0"></i>
-                    <div>
-                        <p class="font-semibold text-zinc-200">Oficina Própria</p>
-                        <p class="text-[10px] text-zinc-400">Agilidade em consertos e montagens</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 6: PROVA SOCIAL / DEPOIMENTOS -->
-        <section class="space-y-3">
-            <div class="flex items-center justify-between px-1">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-zinc-400">Quem compra, recomenda</h3>
-                <div class="flex items-center gap-1 text-white text-xs font-bold">
-                    <span>4.9</span>
-                    <div class="flex text-amber-400">★ ★ ★ ★ ★</div>
-                </div>
-            </div>
-
-            <div class="space-y-2.5">
-                <div class="glass-card p-3.5 rounded-2xl text-xs space-y-1.5">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-zinc-200">Camila R.</span>
-                        <span class="text-amber-400 text-[10px]">★★★★★</span>
-                    </div>
-                    <p class="text-zinc-300 italic text-[11px]">"Atendimento excelente! Enviei minha receita pelo WhatsApp e rapidamente me deram várias opções de lentes com preço ótimo."</p>
-                </div>
-
-                <div class="glass-card p-3.5 rounded-2xl text-xs space-y-1.5">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-zinc-200">Rodrigo M.</span>
-                        <span class="text-amber-400 text-[10px]">★★★★★</span>
-                    </div>
-                    <p class="text-zinc-300 italic text-[11px]">"Fiz o conserto dos meus óculos de sol no mesmo dia. Pessoal super honesto e profissional em Palmas!"</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 7: LOCALIZAÇÃO E HORÁRIO -->
-        <section class="glass-card rounded-3xl p-5 space-y-4">
+    <header class="sticky top-0 z-40 bg-[#0b0f17]/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="p-2.5 rounded-2xl bg-rose-500/20 text-rose-400 border border-rose-500/30">
-                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                <div class="w-10 h-10 rounded-full overflow-hidden border border-red-600/50 bg-gray-800 flex items-center justify-center">
+                    <img src="https://placehold.co/100x100/131b2e/dc2626?text=RD" alt="RD Auto Mecânica Logo" id="brand-logo-img" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <h2 class="text-base font-bold text-white">Onde Estamos</h2>
-                    <p class="text-xs text-zinc-400" id="text-endereco">103 Sul Rua SO 05 Lt 13 Sala 01</p>
+                    <h1 class="font-bold text-base sm:text-lg tracking-tight text-white flex items-center gap-2">
+                        RD Auto Mecânica <span class="text-xs bg-red-600/20 text-red-400 px-2 py-0.5 rounded-full border border-red-600/30">SLZ</span>
+                    </h1>
+                    <p class="text-xs text-gray-400">Oficina automotiva especializada</p>
                 </div>
             </div>
-
-            <!-- Horários Table -->
-            <div class="bg-zinc-950 rounded-2xl p-3.5 text-xs space-y-2 border border-zinc-800">
-                <div class="flex items-center justify-between text-zinc-300 border-b border-zinc-800 pb-1.5">
-                    <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i> Segunda a Sexta:</span>
-                    <span id="horario-seg-sex" class="font-semibold text-white">08:00 - 18:00</span>
-                </div>
-                <div class="flex items-center justify-between text-zinc-300 border-b border-zinc-800 pb-1.5">
-                    <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i> Sábado:</span>
-                    <span id="horario-sabado" class="font-semibold text-white">08:00 - 12:00</span>
-                </div>
-                <div class="flex items-center justify-between text-zinc-400">
-                    <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-zinc-500"></i> Domingo:</span>
-                    <span id="horario-domingo" class="font-semibold text-zinc-400">Fechado</span>
-                </div>
+            <div>
+                <a href="#lead-form-section" class="bg-red-600 hover:bg-red-700 text-white font-medium text-xs sm:text-sm px-4 py-2 rounded-lg shadow-lg shadow-red-600/20 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-headset"></i>
+                    <span>Solicitar Atendimento</span>
+                </a>
             </div>
+        </div>
+    </header>
 
-            <a href="#" id="btn-maps-embed" target="_blank" class="w-full py-2.5 px-3 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold text-xs rounded-xl transition-all flex items-center justify-center gap-2 border border-zinc-700">
-                <i data-lucide="navigation" class="w-4 h-4 text-sky-400"></i>
-                Abrir no Google Maps
-            </a>
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 py-6 space-y-12">
+
+        <section class="text-center space-y-3 pt-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-900 border border-gray-800 text-xs text-gray-300">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                Atendimento Rápido via WhatsApp
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+                Seu veículo merece cuidado especializado.
+            </h2>
+            <p class="text-sm sm:text-base text-gray-400 max-w-xl mx-auto">
+                Manutenção preventiva, corretiva e diagnósticos avançados para nacionais, importados e 4x4 em São Luís (SLZ).
+            </p>
         </section>
 
-        <!-- FOOTER -->
-        <footer class="text-center pt-4 pb-8 space-y-2 text-xs text-zinc-500">
-            <p class="font-semibold text-zinc-300" id="footer-brand-name">Center Ótica Palmas</p>
-            <p class="text-[11px] text-zinc-400">Cuidando da sua visão com atendimento, qualidade e confiança.</p>
-            <div class="flex justify-center gap-4 text-[11px] text-zinc-400 pt-1">
-                <a href="#receita-section" class="hover:underline hover:text-white">Enviar Receita</a>
-                <span>•</span>
-                <a href="#funnel-section" class="hover:underline hover:text-white">Orçamento</a>
-                <span>•</span>
-                <a href="#" class="hover:underline hover:text-white">Privacidade</a>
+        <section id="lead-form-section" class="custom-card rounded-2xl p-5 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="mb-6">
+                <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">Qual serviço seu veículo precisa?</h3>
+                <p class="text-xs sm:text-sm text-gray-400">Selecione o serviço desejado e envie sua solicitação diretamente para nossa equipe.</p>
             </div>
-            <p class="text-[10px] pt-2 text-zinc-600">© 2026 Todos os direitos reservados.</p>
-        </footer>
+
+            <form id="qualification-form" class="space-y-4" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="client-name" class="block text-xs font-semibold text-gray-300 mb-1">Seu Nome *</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-user"></i></span>
+                            <input type="text" id="client-name" required placeholder="Ex: Carlos Silva" 
+                                class="w-full pl-10 pr-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
+                        </div>
+                        <span class="text-red-500 text-xs mt-1 hidden" id="error-name">Por favor, insira seu nome.</span>
+                    </div>
+
+                    <div>
+                        <label for="client-whatsapp" class="block text-xs font-semibold text-gray-300 mb-1">WhatsApp para Contato *</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-brands fa-whatsapp"></i></span>
+                            <input type="tel" id="client-whatsapp" required placeholder="(98) 99999-9999" 
+                                class="w-full pl-10 pr-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
+                        </div>
+                        <span class="text-red-500 text-xs mt-1 hidden" id="error-whatsapp">Insira um WhatsApp válido com DDD.</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="sm:col-span-2">
+                        <label for="vehicle-model" class="block text-xs font-semibold text-gray-300 mb-1">Marca e Modelo do Veículo *</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-car"></i></span>
+                            <input type="text" id="vehicle-model" required placeholder="Ex: Toyota Hilux / VW Gol" 
+                                class="w-full pl-10 pr-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
+                        </div>
+                        <span class="text-red-500 text-xs mt-1 hidden" id="error-vehicle">Informe a marca e modelo.</span>
+                    </div>
+
+                    <div>
+                        <label for="vehicle-year" class="block text-xs font-semibold text-gray-300 mb-1">Ano (Opcional)</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-calendar"></i></span>
+                            <input type="number" id="vehicle-year" placeholder="Ex: 2021" min="1980" max="2030"
+                                class="w-full pl-10 pr-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="primary-service" class="block text-xs font-semibold text-gray-300 mb-1">Serviço Principal Desejado *</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                        <select id="primary-service" required
+                            class="w-full pl-10 pr-8 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors appearance-none">
+                            <option value="" disabled selected>Selecione a necessidade do veículo</option>
+                            <option value="Revisão automotiva">Revisão automotiva</option>
+                            <option value="Injeção eletrônica">Injeção eletrônica</option>
+                            <option value="Embreagem">Embreagem</option>
+                            <option value="Suspensão">Suspensão</option>
+                            <option value="Freios">Freios</option>
+                            <option value="Diagnóstico automotivo">Diagnóstico automotivo</option>
+                            <option value="Manutenção de veículos importados">Manutenção de veículos importados</option>
+                            <option value="Manutenção de veículos nacionais">Manutenção de veículos nacionais</option>
+                            <option value="Manutenção de veículos 4x4">Manutenção de veículos 4x4</option>
+                            <option value="Outros serviços">Outros serviços</option>
+                        </select>
+                        <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 pointer-events-none"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </div>
+                    <span class="text-red-500 text-xs mt-1 hidden" id="error-service">Selecione um serviço.</span>
+                </div>
+
+                <div>
+                    <label for="problem-description" class="block text-xs font-semibold text-gray-300 mb-1">Descrição do Problema ou Necessidade (Opcional)</label>
+                    <textarea id="problem-description" rows="3" placeholder="Descreva brevemente barulhos, luzes no painel ou sintomas..."
+                        class="w-full p-3 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors"></textarea>
+                </div>
+
+                <button type="submit" 
+                    class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-3 transition-all transform active:scale-[0.98] text-sm sm:text-base">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Solicitar atendimento pelo WhatsApp</span>
+                </button>
+            </form>
+        </section>
+
+        <section id="services-section" class="space-y-6">
+            <div class="text-center sm:text-left">
+                <h3 class="text-xl sm:text-2xl font-bold text-white">Especialidades e serviços</h3>
+                <p class="text-xs sm:text-sm text-gray-400">Manutenção e diagnóstico automotivo para diferentes necessidades.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div onclick="selectServiceCard('Revisão automotiva')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1">Revisão automotiva</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">Revisões preventivas e avaliação dos principais sistemas do veículo.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                        <span>Selecionar serviço</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+
+                <div onclick="selectServiceCard('Injeção eletrônica')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1">Injeção eletrônica</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">Avaliação e diagnóstico avançado do sistema de injeção eletrônica.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                        <span>Selecionar serviço</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+
+                <div onclick="selectServiceCard('Embreagem')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1">Embreagem</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">Avaliação do sistema de embreagem e identificação de problemas mecânicos.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                        <span>Selecionar serviço</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+
+                <div onclick="selectServiceCard('Suspensão')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-car-burst"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1">Suspensão</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">Inspeção e avaliação completa dos componentes da suspensão e estabilidade.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                        <span>Selecionar serviço</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+
+                <div onclick="selectServiceCard('Freios')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-circle-dot"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1">Freios</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">Avaliação do sistema de frenagem e identificação de necessidades de manutenção.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                        <span>Selecionar serviço</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+
+                <div onclick="selectServiceCard('Diagnóstico automotivo')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1">Diagnóstico automotivo</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">Investigação de falhas e identificação de possíveis causas no veículo.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                        <span>Selecionar serviço</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </div>
+                </div>
+
+                <div onclick="selectServiceCard('Manutenção de veículos nacionais, importados e 4x4')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between sm:col-span-2 md:col-span-3 group">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 flex-shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-car text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base mb-1">Nacionais, Importados e 4x4</h4>
+                                <p class="text-xs text-gray-400 leading-relaxed max-w-xl">Atendimento técnico especializado conforme a exigência mecânica e capacidade da oficina para veículos nacionais, importados e tração 4x4.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-red-400 group-hover:text-red-300 self-end sm:self-center">
+                            <span>Selecionar este atendimento</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-6">
+            <div class="text-center sm:text-left">
+                <h3 class="text-xl sm:text-2xl font-bold text-white">Canais de Contato e Localização</h3>
+                <p class="text-xs sm:text-sm text-gray-400">Fale diretamente conosco ou venha nos visitar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="#" id="contact-whatsapp-btn" target="_blank" rel="noopener noreferrer"
+                   class="custom-card rounded-xl p-4 flex items-center gap-4 group hover:bg-gray-800/50">
+                    <div class="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-500 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Falar com a oficina</h4>
+                        <p class="text-xs text-gray-400">Atendimento rápido via WhatsApp</p>
+                    </div>
+                </a>
+
+                <a href="https://maps.app.goo.gl/DWnTLs5LiFeEYaPGA?g_st=ic" target="_blank" rel="noopener noreferrer"
+                   class="custom-card rounded-xl p-4 flex items-center gap-4 group hover:bg-gray-800/50">
+                    <div class="w-12 h-12 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Como chegar à oficina</h4>
+                        <p class="text-xs text-gray-400">Abrir localização no Google Maps</p>
+                    </div>
+                </a>
+
+                <a href="#" id="contact-instagram-btn" target="_blank" rel="noopener noreferrer"
+                   class="custom-card rounded-xl p-4 flex items-center gap-4 group hover:bg-gray-800/50">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-500 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Acompanhe nosso Instagram</h4>
+                        <p class="text-xs text-gray-400">Bastidores e dicas automotivas</p>
+                    </div>
+                </a>
+
+                <a href="#" id="contact-phone-btn"
+                   class="custom-card rounded-xl p-4 flex items-center gap-4 group hover:bg-gray-800/50">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-500 text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Ligar para a oficina</h4>
+                        <p class="text-xs text-gray-400">Contato telefônico direto</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="custom-card rounded-2xl p-6 sm:p-8 text-center space-y-4 bg-gradient-to-b from-[#131b2e] to-[#0b0f17] border-red-600/30">
+            <h3 class="text-xl sm:text-2xl font-bold text-white">Precisa de manutenção para seu veículo?</h3>
+            <p class="text-xs sm:text-sm text-gray-400 max-w-md mx-auto">
+                Informe o que seu veículo precisa e entre em contato com nossa equipe para solicitar atendimento com rapidez e segurança.
+            </p>
+            <div>
+                <a href="#lead-form-section" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-lg shadow-red-600/20 transition-all">
+                    <i class="fa-solid fa-arrow-up"></i>
+                    <span>Solicitar atendimento agora</span>
+                </a>
+            </div>
+        </section>
 
     </main>
 
-    <!-- FLOATING WHATSAPP BUTTON -->
-    <div class="fixed bottom-5 right-5 z-50 flex items-center gap-2 group">
-        <!-- Tooltip Label -->
-        <span class="hidden md:inline-block bg-zinc-900 border border-zinc-700 text-white text-xs px-3 py-1.5 rounded-xl shadow-xl transition-opacity">
-            Fale com nossa equipe
-        </span>
-        <a href="#" id="btn-floating-wsp" target="_blank" onclick="trackEvent('Click_WhatsApp_Floating')" class="w-14 h-14 bg-white hover:bg-zinc-200 text-black rounded-full flex items-center justify-center shadow-glow-white pulse-white transition-transform hover:scale-110 active:scale-95">
-            <i data-lucide="message-circle" class="w-7 h-7 text-emerald-600 stroke-[2.5]"></i>
-        </a>
-    </div>
+    <footer class="mt-auto border-t border-gray-800 bg-[#080b11] py-8 text-center text-xs text-gray-500 space-y-3">
+        <div class="flex items-center justify-center gap-2">
+            <span class="font-bold text-white text-sm">RD Auto Mecânica</span>
+            <span class="text-red-500">•</span>
+            <span>SLZ</span>
+        </div>
+        <p>© <span id="current-year">2026</span> RD Auto Mecânica. Todos os direitos reservados.</p>
+        <p class="text-[10px] text-gray-600">Página de atendimento oficial para Instagram</p>
+    </footer>
 
-    <!-- JAVASCRIPT APP LOGIC -->
+    <a href="#" id="floating-whatsapp" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-600 hover:bg-green-500 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all hover:scale-110 active:scale-95"
+       title="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <script>
-        const config = {
-            nomeOtica: "Center Ótica Palmas",
-            whatsapp: "5582996402650", // Número no formato internacional sem caracteres especiais
-            telefone: "(82) 99640-2650",
-            instagram: "https://instagram.com/centeroticapalmas",
-            endereco: "103 Sul Rua SO 05 Lt 13 Sala 01 - Palmas, TO",
-            googleMaps: "https://maps.google.com/?q=103+Sul+Rua+SO+05+Lt+13+Sala+01",
-            horario: {
-                segundaSexta: "08:00 às 18:00",
-                sabado: "08:00 às 12:00",
-                domingo: "Fechado"
-            }
+        const CONFIG = {
+            whatsappNumber: "5582996402650",
+            commercialPhone: "+5582996402650",
+            instagramUrl: "https://instagram.com/",
+            googleMapsUrl: "https://maps.app.goo.gl/DWnTLs5LiFeEYaPGA?g_st=ic"
         };
 
-        /* Estado da aplicação */
-        let funnelState = {
-            step: 1,
-            selectedService: '',
-            clientName: '',
-            clientPhone: '',
-            clientObs: ''
-        };
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        let selectedFile = null;
+            const defaultMsg = encodeURIComponent("Olá! Vim pelo Instagram da RD Auto Mecânica e gostaria de solicitar atendimento.");
+            const waLink = `https://wa.me/${CONFIG.whatsappNumber}?text=${defaultMsg}`;
+            
+            document.getElementById('contact-whatsapp-btn').href = waLink;
+            document.getElementById('floating-whatsapp').href = waLink;
+            document.getElementById('contact-instagram-btn').href = CONFIG.instagramUrl;
+            document.getElementById('contact-phone-btn').href = `tel:${CONFIG.commercialPhone}`;
+            document.getElementById('contact-phone-btn').title = CONFIG.commercialPhone;
 
-        /* Inicialização ao Carregar DOM */
-        document.addEventListener('DOMContentLoaded', function() {
-            lucide.createIcons();
-            applyConfigToUI();
-            updateFloatingWhatsApp();
+            const form = document.getElementById('qualification-form');
+            form.addEventListener('submit', handleFormSubmit);
+
+            const phoneInput = document.getElementById('client-whatsapp');
+            phoneInput.addEventListener('input', (e) => {
+                let val = e.target.value.replace(/\D/g, '');
+                if (val.length > 11) val = val.slice(0, 11);
+                if (val.length > 6) {
+                    val = `(${val.slice(0,2)}) ${val.slice(2,7)}-${val.slice(7)}`;
+                } else if (val.length > 2) {
+                    val = `(${val.slice(0,2)}) ${val.slice(2)}`;
+                }
+                e.target.value = val;
+            });
         });
 
-        /* Aplica as variáveis do objeto CONFIG aos elementos HTML */
-        function applyConfigToUI() {
-            document.getElementById('text-endereco').innerText = config.endereco;
-            document.getElementById('horario-seg-sex').innerText = config.horario.segundaSexta;
-            document.getElementById('horario-sabado').innerText = config.horario.sabado;
-            document.getElementById('horario-domingo').innerText = config.horario.domingo;
-            document.getElementById('text-phone-display').innerText = config.telefone;
-            document.getElementById('footer-brand-name').innerText = config.nomeOtica;
-
-            // Links de contato
-            document.getElementById('link-instagram').href = config.instagram;
-            document.getElementById('link-maps').href = config.googleMaps;
-            document.getElementById('btn-maps-embed').href = config.googleMaps;
-            document.getElementById('link-phone').href = `tel:${config.telefone.replace(/\D/g, '')}`;
-
-            // Link do WhatsApp Direto
-            const wspDefaultMsg = encodeURIComponent(`Olá! Vim pelo Instagram e gostaria de saber mais sobre os serviços da ${config.nomeOtica}.`);
-            document.getElementById('link-wsp-direct').href = `https://wa.me/${config.whatsapp}?text=${wspDefaultMsg}`;
-        }
-
-        /* Atualiza link do botão flutuante */
-        function updateFloatingWhatsApp() {
-            const defaultText = encodeURIComponent(`Olá! Vim pelo Instagram e gostaria de tirar algumas dúvidas.`);
-            document.getElementById('btn-floating-wsp').href = `https://wa.me/${config.whatsapp}?text=${defaultText}`;
-        }
-
-        function selectServiceOption(serviceName) {
-            funnelState.selectedService = serviceName;
+        function selectServiceCard(serviceName) {
+            const selectEl = document.getElementById('primary-service');
+            selectEl.value = serviceName;
             
-            // Visual Active State (Preto & Branco)
-            const buttons = document.querySelectorAll('.service-opt-btn');
-            buttons.forEach(btn => {
-                if (btn.innerText.includes(serviceName) || (serviceName === 'Enviar Receita' && btn.innerText.includes('receita'))) {
-                    btn.classList.add('border-white', 'bg-white/15', 'text-white');
-                    btn.classList.remove('border-zinc-700', 'bg-zinc-900/90');
-                } else {
-                    btn.classList.remove('border-white', 'bg-white/15', 'text-white');
-                    btn.classList.add('border-zinc-700', 'bg-zinc-900/90');
-                }
-            });
+            selectEl.classList.add('border-red-600', 'ring-1', 'ring-red-600');
+            setTimeout(() => {
+                selectEl.classList.remove('border-red-600', 'ring-1', 'ring-red-600');
+            }, 1500);
 
-            // Habilita Botão de Avançar
-            const btnNext = document.getElementById('btn-step1-next');
-            btnNext.disabled = false;
+            const formSection = document.getElementById('lead-form-section');
+            formSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function setFunnelService(serviceName) {
-            selectServiceOption(serviceName);
-            goToStep(1);
-            document.getElementById('funnel-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function goToStep(stepNum) {
-            funnelState.step = stepNum;
-
-            document.getElementById('step-1').classList.toggle('hidden', stepNum !== 1);
-            document.getElementById('step-2').classList.toggle('hidden', stepNum !== 2);
-            document.getElementById('step-3').classList.toggle('hidden', stepNum !== 3);
-
-            const progressBar = document.getElementById('progress-bar');
-            const stepIndicatorText = document.getElementById('step-indicator-text');
-            const stepTitleText = document.getElementById('step-title-text');
-
-            if (stepNum === 1) {
-                progressBar.style.width = '33%';
-                stepIndicatorText.innerText = 'Passo 1 de 3';
-                stepTitleText.innerText = 'Escolha do Serviço';
-            } else if (stepNum === 2) {
-                progressBar.style.width = '66%';
-                stepIndicatorText.innerText = 'Passo 2 de 3';
-                stepTitleText.innerText = 'Identificação';
-            } else if (stepNum === 3) {
-                progressBar.style.width = '100%';
-                stepIndicatorText.innerText = 'Passo 3 de 3';
-                stepTitleText.innerText = 'Pronto para Atendimento';
-            }
-        }
-
-        function submitLeadStep2() {
-            const nameInput = document.getElementById('lead-name');
-            const phoneInput = document.getElementById('lead-phone');
-            const obsInput = document.getElementById('lead-obs');
-            const lgpdCheck = document.getElementById('lgpd-check');
-
-            if (!nameInput.checkValidity()) {
-                nameInput.reportValidity();
-                return;
-            }
-            if (!phoneInput.checkValidity()) {
-                phoneInput.reportValidity();
-                return;
-            }
-            if (!lgpdCheck.checked) {
-                alert('Por favor, aceite os termos para prosseguir com seu atendimento.');
-                return;
-            }
-
-            funnelState.clientName = nameInput.value.trim();
-            funnelState.clientPhone = phoneInput.value.trim();
-            funnelState.clientObs = obsInput.value.trim();
-
-            document.getElementById('summary-service').innerText = funnelState.selectedService;
-            document.getElementById('summary-name').innerText = funnelState.clientName;
-            document.getElementById('summary-phone').innerText = funnelState.clientPhone;
-
-            let message = `Olá! Meu nome é *${funnelState.clientName}*.\n`;
-            message += `Estou interessado em *${funnelState.selectedService}* e gostaria de receber um orçamento.\n`;
-            if (funnelState.clientObs) {
-                message += `Observação: ${funnelState.clientObs}\n`;
-            }
-            message += `(Atendimento iniciado pelo Instagram)`;
-
-            const finalWspUrl = `https://wa.me/${config.whatsapp}?text=${encodeURIComponent(message)}`;
-            document.getElementById('btn-whatsapp-final').href = finalWspUrl;
-
-            goToStep(3);
-        }
-
-        function handleDragOver(e) {
+        function handleFormSubmit(e) {
             e.preventDefault();
-            e.stopPropagation();
-            document.getElementById('drop-zone').classList.add('drag-over');
-        }
 
-        function handleDragLeave(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            document.getElementById('drop-zone').classList.remove('drag-over');
-        }
+            const name = document.getElementById('client-name').value.trim();
+            const whatsapp = document.getElementById('client-whatsapp').value.trim();
+            const vehicle = document.getElementById('vehicle-model').value.trim();
+            const year = document.getElementById('vehicle-year').value.trim() || 'Não informado';
+            const service = document.getElementById('primary-service').value;
+            const description = document.getElementById('problem-description').value.trim() || 'Nenhuma descrição adicional informada.';
 
-        function handleDrop(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            document.getElementById('drop-zone').classList.remove('drag-over');
-            
-            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                processFile(e.dataTransfer.files[0]);
-            }
-        }
+            let isValid = true;
 
-        function handleFileSelect(e) {
-            if (e.target.files && e.target.files[0]) {
-                processFile(e.target.files[0]);
-            }
-        }
-
-        function processFile(file) {
-            const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg', 'application/pdf'];
-            if (!allowedTypes.includes(file.type)) {
-                alert('Por favor, selecione uma imagem (JPG, PNG) ou um arquivo PDF.');
-                return;
-            }
-
-            selectedFile = file;
-
-            document.getElementById('upload-idle').classList.add('hidden');
-            document.getElementById('upload-preview').classList.remove('hidden');
-            document.getElementById('file-name').innerText = file.name;
-            document.getElementById('file-size').innerText = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
-
-            const lgpdRecipe = document.getElementById('lgpd-check-recipe');
-            lgpdRecipe.addEventListener('change', checkRecipeSubmitStatus);
-            checkRecipeSubmitStatus();
-        }
-
-        function removeSelectedFile() {
-            selectedFile = null;
-            document.getElementById('file-input').value = '';
-            document.getElementById('upload-idle').classList.remove('hidden');
-            document.getElementById('upload-preview').classList.add('hidden');
-            checkRecipeSubmitStatus();
-        }
-
-        function checkRecipeSubmitStatus() {
-            const btnSubmit = document.getElementById('btn-submit-recipe');
-            const lgpdRecipe = document.getElementById('lgpd-check-recipe');
-            btnSubmit.disabled = !(selectedFile && lgpdRecipe.checked);
-        }
-
-        function sendRecipeToWhatsapp() {
-            if (!selectedFile) return;
-
-            trackEvent('Recipe_Uploaded');
-
-            const text = encodeURIComponent(`Olá! Gostaria de enviar minha receita (*${selectedFile.name}*) para solicitar um orçamento com a ${config.nomeOtica}.`);
-            const wspUrl = `https://wa.me/${config.whatsapp}?text=${text}`;
-
-            window.open(wspUrl, '_blank');
-        }
-
-        function maskPhone(input) {
-            let v = input.value.replace(/\D/g, '');
-            if (v.length > 11) v = v.slice(0, 11);
-            if (v.length > 6) {
-                input.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
-            } else if (v.length > 2) {
-                input.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+            if (!name) {
+                document.getElementById('error-name').classList.remove('hidden');
+                isValid = false;
             } else {
-                input.value = v;
+                document.getElementById('error-name').classList.add('hidden');
             }
-        }
 
-        function trackEvent(eventName, payload = {}) {
-            console.log(`[Event Tracked]: ${eventName}`, payload);
-            
-            if (typeof fbq === 'function') {
-                fbq('trackCustom', eventName, payload);
+            const cleanPhone = whatsapp.replace(/\D/g, '');
+            if (cleanPhone.length < 10) {
+                document.getElementById('error-whatsapp').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('error-whatsapp').classList.add('hidden');
             }
-            if (typeof gtag === 'function') {
-                gtag('event', eventName, payload);
+
+            if (!vehicle) {
+                document.getElementById('error-vehicle').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('error-vehicle').classList.add('hidden');
             }
+
+            if (!service) {
+                document.getElementById('error-service').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('error-service').classList.add('hidden');
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            const message = `Olá! Vim pelo Instagram da RD Auto Mecânica e gostaria de solicitar atendimento.\n\n` +
+                `Nome: ${name}\n` +
+                `WhatsApp: ${whatsapp}\n` +
+                `Veículo: ${vehicle}\n` +
+                `Ano: ${year}\n` +
+                `Serviço desejado: ${service}\n` +
+                `Descrição: ${description}\n\n` +
+                `Aguardo o retorno da equipe.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const targetUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
+
+            window.open(targetUrl, '_blank');
         }
     </script>
 </body>
