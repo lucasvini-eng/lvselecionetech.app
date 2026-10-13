@@ -27,135 +27,146 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --color-primary: #dc2626;
-            --color-secondary: #1f2937;
+            --color-secondary: #111111;
             --color-accent: #ef4444;
-            --color-background: #0b0f17;
-            --color-surface: #131b2e;
+            --color-background: #000000;
+            --color-surface: #0a0a0c;
             --color-text: #f3f4f6;
             --color-text-muted: #9ca3af;
             --color-success: #22c55e;
-            --color-border: #2d3748;
+            --color-border: #1f1f23;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--color-background);
             color: var(--color-text);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.08) 0%, transparent 50%),
+                linear-gradient(to bottom, #000000 0%, #050507 100%);
+            background-attachment: fixed;
         }
 
         .custom-card {
             background-color: var(--color-surface);
             border: 1px solid var(--color-border);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
         }
         .custom-card:hover {
             border-color: var(--color-primary);
             transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(220, 38, 38, 0.15);
+        }
+
+        .carbon-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 16px 16px;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-red-600 selection:text-white">
+<body class="min-h-screen flex flex-col antialiased selection:bg-red-600 selection:text-white carbon-pattern">
 
-    <header class="sticky top-0 z-40 bg-[#0b0f17]/90 backdrop-blur-md border-b border-gray-800">
+    <header class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-gray-900">
         <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full overflow-hidden border border-red-600/50 bg-gray-800 flex items-center justify-center">
-                    <img src="https://placehold.co/100x100/131b2e/dc2626?text=RD" alt="RD Auto Mecânica Logo" id="brand-logo-img" class="w-full h-full object-cover">
+                <div class="w-10 h-10 rounded-full overflow-hidden border border-red-600/60 bg-black flex items-center justify-center shadow-[0_0_10px_rgba(220,38,38,0.3)]">
+                    <img src="logo.jpg" alt="RD Auto Mecânica Logo" id="brand-logo-img" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/0a0a0c/dc2626?text=RD'">
                 </div>
                 <div>
-                    <h1 class="font-bold text-base sm:text-lg tracking-tight text-white flex items-center gap-2">
-                        RD Auto Mecânica <span class="text-xs bg-red-600/20 text-red-400 px-2 py-0.5 rounded-full border border-red-600/30">SLZ</span>
+                    <h1 class="font-black text-base sm:text-lg tracking-wider text-white flex items-center gap-2 uppercase">
+                        RD Auto Mecânica <span class="text-[10px] font-bold bg-red-600 text-white px-2 py-0.5 rounded shadow-sm">SLZ</span>
                     </h1>
-                    <p class="text-xs text-gray-400">Oficina automotiva especializada</p>
+                    <p class="text-[11px] text-gray-400 font-medium uppercase tracking-widest">Oficina Automotiva Especializada</p>
                 </div>
             </div>
             <div>
-                <a href="#lead-form-section" class="bg-red-600 hover:bg-red-700 text-white font-medium text-xs sm:text-sm px-4 py-2 rounded-lg shadow-lg shadow-red-600/20 transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-headset"></i>
-                    <span>Solicitar Atendimento</span>
+                <a href="#lead-form-section" class="bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm px-4 py-2 rounded-lg shadow-lg shadow-red-600/30 transition-all flex items-center gap-2 uppercase tracking-wide">
+                    <i class="fa-solid fa-wrench text-xs"></i>
+                    <span>Atendimento</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow max-w-4xl mx-auto w-full px-4 py-6 space-y-12">
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 py-8 space-y-12">
 
-        <section class="text-center space-y-3 pt-2">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-900 border border-gray-800 text-xs text-gray-300">
-                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                Atendimento Rápido via WhatsApp
+        <section class="text-center space-y-4 pt-2">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs text-red-400 font-semibold uppercase tracking-wider shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
+                <span>Nacionais, Importados e 4x4 em São Luís</span>
             </div>
-            <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
-                Seu veículo merece cuidado especializado.
+            <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase italic">
+                Seu veículo merece <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-700">cuidado profissional.</span>
             </h2>
-            <p class="text-sm sm:text-base text-gray-400 max-w-xl mx-auto">
-                Manutenção preventiva, corretiva e diagnósticos avançados para nacionais, importados e 4x4 em São Luís (SLZ).
+            <p class="text-sm sm:text-base text-gray-400 max-w-xl mx-auto font-normal leading-relaxed">
+                Manutenção preventiva, corretiva e diagnósticos avançados com alto padrão técnico e atendimento ágil.
             </p>
         </section>
 
-        <section id="lead-form-section" class="custom-card rounded-2xl p-5 sm:p-8 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-full blur-3xl pointer-events-none"></div>
+        <section id="lead-form-section" class="custom-card rounded-2xl p-5 sm:p-8 relative overflow-hidden border-t-2 border-t-red-600">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <div class="mb-6">
-                <h3 class="text-xl sm:text-2xl font-bold text-white mb-1">Qual serviço seu veículo precisa?</h3>
-                <p class="text-xs sm:text-sm text-gray-400">Selecione o serviço desejado e envie sua solicitação diretamente para nossa equipe.</p>
+                <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wide mb-1">Qual serviço seu veículo precisa?</h3>
+                <p class="text-xs sm:text-sm text-gray-400 font-medium">Selecione o serviço e envie sua solicitação direto para o WhatsApp da oficina.</p>
             </div>
 
             <form id="qualification-form" class="space-y-4" novalidate>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label for="client-name" class="block text-xs font-semibold text-gray-300 mb-1">Seu Nome *</label>
+                        <label for="client-name" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Seu Nome *</label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-user"></i></span>
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-red-500"><i class="fa-solid fa-user"></i></span>
                             <input type="text" id="client-name" required placeholder="Ex: Carlos Silva" 
-                                class="w-full pl-10 pr-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
+                                class="w-full pl-10 pr-3 py-3 bg-black border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
                         </div>
-                        <span class="text-red-500 text-xs mt-1 hidden" id="error-name">Por favor, insira seu nome.</span>
+                        <span class="text-red-500 text-xs mt-1 hidden font-semibold" id="error-name">Por favor, insira seu nome.</span>
                     </div>
 
                     <div>
-                        <label for="client-whatsapp" class="block text-xs font-semibold text-gray-300 mb-1">WhatsApp para Contato *</label>
+                        <label for="client-whatsapp" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">WhatsApp para Contato *</label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-brands fa-whatsapp"></i></span>
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-red-500"><i class="fa-brands fa-whatsapp"></i></span>
                             <input type="tel" id="client-whatsapp" required placeholder="(98) 99999-9999" 
-                                class="w-full pl-10 pr-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
+                                class="w-full pl-10 pr-3 py-3 bg-black border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
                         </div>
-                        <span class="text-red-500 text-xs mt-1 hidden" id="error-whatsapp">Insira um WhatsApp válido com DDD.</span>
+                        <span class="text-red-500 text-xs mt-1 hidden font-semibold" id="error-whatsapp">Insira um WhatsApp válido com DDD.</span>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div class="sm:col-span-2">
-                        <label for="vehicle-model" class="block text-xs font-semibold text-gray-300 mb-1">Marca e Modelo do Veículo *</label>
+                        <label for="vehicle-model" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Marca e Modelo do Veículo *</label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-car"></i></span>
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-red-500"><i class="fa-solid fa-car-rear"></i></span>
                             <input type="text" id="vehicle-model" required placeholder="Ex: Toyota Hilux / VW Gol" 
-                                class="w-full pl-10 pr-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
+                                class="w-full pl-10 pr-3 py-3 bg-black border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
                         </div>
-                        <span class="text-red-500 text-xs mt-1 hidden" id="error-vehicle">Informe a marca e modelo.</span>
+                        <span class="text-red-500 text-xs mt-1 hidden font-semibold" id="error-vehicle">Informe a marca e modelo.</span>
                     </div>
 
                     <div>
-                        <label for="vehicle-year" class="block text-xs font-semibold text-gray-300 mb-1">Ano (Opcional)</label>
+                        <label for="vehicle-year" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Ano (Opcional)</label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-calendar"></i></span>
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-red-500"><i class="fa-solid fa-calendar-days"></i></span>
                             <input type="number" id="vehicle-year" placeholder="Ex: 2021" min="1980" max="2030"
-                                class="w-full pl-10 pr-3 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
+                                class="w-full pl-10 pr-3 py-3 bg-black border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-red-600 transition-colors">
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <label for="primary-service" class="block text-xs font-semibold text-gray-300 mb-1">Serviço Principal Desejado *</label>
+                    <label for="primary-service" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Serviço Principal Desejado *</label>
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-red-500"><i class="fa-solid fa-screwdriver-wrench"></i></span>
                         <select id="primary-service" required
-                            class="w-full pl-10 pr-8 py-2.5 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors appearance-none">
+                            class="w-full pl-10 pr-10 py-3 bg-black border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-red-600 transition-colors appearance-none cursor-pointer">
                             <option value="" disabled selected>Selecione a necessidade do veículo</option>
                             <option value="Revisão automotiva">Revisão automotiva</option>
                             <option value="Injeção eletrônica">Injeção eletrônica</option>
@@ -170,39 +181,39 @@
                         </select>
                         <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 pointer-events-none"><i class="fa-solid fa-chevron-down text-xs"></i></span>
                     </div>
-                    <span class="text-red-500 text-xs mt-1 hidden" id="error-service">Selecione um serviço.</span>
+                    <span class="text-red-500 text-xs mt-1 hidden font-semibold" id="error-service">Selecione um serviço.</span>
                 </div>
 
                 <div>
-                    <label for="problem-description" class="block text-xs font-semibold text-gray-300 mb-1">Descrição do Problema ou Necessidade (Opcional)</label>
-                    <textarea id="problem-description" rows="3" placeholder="Descreva brevemente barulhos, luzes no painel ou sintomas..."
-                        class="w-full p-3 bg-gray-900 border border-gray-800 rounded-lg text-sm text-white focus:outline-none focus:border-red-600 transition-colors"></textarea>
+                    <label for="problem-description" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Descrição do Problema ou Necessidade (Opcional)</label>
+                    <textarea id="problem-description" rows="3" placeholder="Descreva barulhos, luzes no painel ou sintomas observados..."
+                        class="w-full p-3 bg-black border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-red-600 transition-colors"></textarea>
                 </div>
 
                 <button type="submit" 
-                    class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-3 transition-all transform active:scale-[0.98] text-sm sm:text-base">
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-black py-4 px-6 rounded-xl shadow-xl shadow-red-600/30 flex items-center justify-center gap-3 transition-all transform active:scale-[0.98] text-sm sm:text-base uppercase tracking-wider">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
                     <span>Solicitar atendimento pelo WhatsApp</span>
                 </button>
             </form>
         </section>
 
         <section id="services-section" class="space-y-6">
-            <div class="text-center sm:text-left">
-                <h3 class="text-xl sm:text-2xl font-bold text-white">Especialidades e serviços</h3>
-                <p class="text-xs sm:text-sm text-gray-400">Manutenção e diagnóstico automotivo para diferentes necessidades.</p>
+            <div class="text-center sm:text-left border-l-4 border-red-600 pl-3">
+                <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wide">Especialidades e Serviços</h3>
+                <p class="text-xs sm:text-sm text-gray-400 font-medium">Manutenção mecânica e diagnósticos avançados.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <div onclick="selectServiceCard('Revisão automotiva')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                        <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all">
                             <i class="fa-solid fa-clipboard-check"></i>
                         </div>
                         <h4 class="font-bold text-white text-base mb-1">Revisão automotiva</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">Revisões preventivas e avaliação dos principais sistemas do veículo.</p>
+                        <p class="text-xs text-gray-400 leading-relaxed font-normal">Revisões preventivas e avaliação dos principais sistemas do veículo.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                    <div class="mt-4 pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold text-red-500 group-hover:text-red-400">
                         <span>Selecionar serviço</span>
                         <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </div>
@@ -210,13 +221,13 @@
 
                 <div onclick="selectServiceCard('Injeção eletrônica')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                        <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all">
                             <i class="fa-solid fa-microchip"></i>
                         </div>
                         <h4 class="font-bold text-white text-base mb-1">Injeção eletrônica</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">Avaliação e diagnóstico avançado do sistema de injeção eletrônica.</p>
+                        <p class="text-xs text-gray-400 leading-relaxed font-normal">Avaliação e diagnóstico avançado do sistema de injeção eletrônica.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                    <div class="mt-4 pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold text-red-500 group-hover:text-red-400">
                         <span>Selecionar serviço</span>
                         <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </div>
@@ -224,13 +235,13 @@
 
                 <div onclick="selectServiceCard('Embreagem')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                        <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all">
                             <i class="fa-solid fa-gears"></i>
                         </div>
                         <h4 class="font-bold text-white text-base mb-1">Embreagem</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">Avaliação do sistema de embreagem e identificação de problemas mecânicos.</p>
+                        <p class="text-xs text-gray-400 leading-relaxed font-normal">Avaliação do sistema de embreagem e identificação de problemas mecânicos.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                    <div class="mt-4 pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold text-red-500 group-hover:text-red-400">
                         <span>Selecionar serviço</span>
                         <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </div>
@@ -238,13 +249,13 @@
 
                 <div onclick="selectServiceCard('Suspensão')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                        <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all">
                             <i class="fa-solid fa-car-burst"></i>
                         </div>
                         <h4 class="font-bold text-white text-base mb-1">Suspensão</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">Inspeção e avaliação completa dos componentes da suspensão e estabilidade.</p>
+                        <p class="text-xs text-gray-400 leading-relaxed font-normal">Inspeção e avaliação completa dos componentes da suspensão e estabilidade.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                    <div class="mt-4 pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold text-red-500 group-hover:text-red-400">
                         <span>Selecionar serviço</span>
                         <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </div>
@@ -252,13 +263,13 @@
 
                 <div onclick="selectServiceCard('Freios')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                        <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all">
                             <i class="fa-solid fa-circle-dot"></i>
                         </div>
                         <h4 class="font-bold text-white text-base mb-1">Freios</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">Avaliação do sistema de frenagem e identificação de necessidades de manutenção.</p>
+                        <p class="text-xs text-gray-400 leading-relaxed font-normal">Avaliação do sistema de frenagem e identificação de necessidades de manutenção.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                    <div class="mt-4 pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold text-red-500 group-hover:text-red-400">
                         <span>Selecionar serviço</span>
                         <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </div>
@@ -266,13 +277,13 @@
 
                 <div onclick="selectServiceCard('Diagnóstico automotivo')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between group">
                     <div>
-                        <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
+                        <div class="w-10 h-10 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all">
                             <i class="fa-solid fa-magnifying-glass-chart"></i>
                         </div>
                         <h4 class="font-bold text-white text-base mb-1">Diagnóstico automotivo</h4>
-                        <p class="text-xs text-gray-400 leading-relaxed">Investigação de falhas e identificação de possíveis causas no veículo.</p>
+                        <p class="text-xs text-gray-400 leading-relaxed font-normal">Investigação de falhas e identificação de possíveis causas no veículo.</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-gray-800/60 flex items-center justify-between text-xs font-semibold text-red-400 group-hover:text-red-300">
+                    <div class="mt-4 pt-3 border-t border-zinc-900 flex items-center justify-between text-xs font-bold text-red-500 group-hover:text-red-400">
                         <span>Selecionar serviço</span>
                         <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </div>
@@ -281,15 +292,15 @@
                 <div onclick="selectServiceCard('Manutenção de veículos nacionais, importados e 4x4')" class="custom-card rounded-xl p-5 cursor-pointer flex flex-col justify-between sm:col-span-2 md:col-span-3 group">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <div class="w-12 h-12 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 flex-shrink-0 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all">
                                 <i class="fa-solid fa-car text-xl"></i>
                             </div>
                             <div>
                                 <h4 class="font-bold text-white text-base mb-1">Nacionais, Importados e 4x4</h4>
-                                <p class="text-xs text-gray-400 leading-relaxed max-w-xl">Atendimento técnico especializado conforme a exigência mecânica e capacidade da oficina para veículos nacionais, importados e tração 4x4.</p>
+                                <p class="text-xs text-gray-400 leading-relaxed max-w-xl font-normal">Atendimento técnico especializado conforme a exigência mecânica para veículos nacionais, importados e tração 4x4.</p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-2 text-xs font-semibold text-red-400 group-hover:text-red-300 self-end sm:self-center">
+                        <div class="flex items-center gap-2 text-xs font-bold text-red-500 group-hover:text-red-400 self-end sm:self-center">
                             <span>Selecionar este atendimento</span>
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
@@ -299,65 +310,65 @@
         </section>
 
         <section class="space-y-6">
-            <div class="text-center sm:text-left">
-                <h3 class="text-xl sm:text-2xl font-bold text-white">Canais de Contato e Localização</h3>
-                <p class="text-xs sm:text-sm text-gray-400">Fale diretamente conosco ou venha nos visitar.</p>
+            <div class="text-center sm:text-left border-l-4 border-red-600 pl-3">
+                <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wide">Canais de Contato e Localização</h3>
+                <p class="text-xs sm:text-sm text-gray-400 font-medium">Fale conosco ou venha nos visitar.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <a href="#" id="contact-whatsapp-btn" target="_blank" rel="noopener noreferrer"
-                   class="custom-card rounded-xl p-4 flex items-center gap-4 group hover:bg-gray-800/50">
-                    <div class="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-500 text-xl group-hover:scale-110 transition-transform">
+                   class="custom-card rounded-xl p-4 flex items-center gap-4 group">
+                    <div class="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-500 text-xl group-hover:scale-110 group-hover:bg-green-600 group-hover:text-white transition-all">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
                     <div>
                         <h4 class="font-bold text-white text-sm">Falar com a oficina</h4>
-                        <p class="text-xs text-gray-400">Atendimento rápido via WhatsApp</p>
+                        <p class="text-xs text-gray-400 font-normal">Atendimento rápido via WhatsApp</p>
                     </div>
                 </a>
 
                 <a href="https://maps.app.goo.gl/DWnTLs5LiFeEYaPGA?g_st=ic" target="_blank" rel="noopener noreferrer"
-                   class="custom-card rounded-xl p-4 flex items-center gap-4 group hover:bg-gray-800/50">
-                    <div class="w-12 h-12 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 text-xl group-hover:scale-110 transition-transform">
+                   class="custom-card rounded-xl p-4 flex items-center gap-4 group">
+                    <div class="w-12 h-12 rounded-xl bg-red-600/10 border border-red-600/30 flex items-center justify-center text-red-500 text-xl group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
                     <div>
                         <h4 class="font-bold text-white text-sm">Como chegar à oficina</h4>
-                        <p class="text-xs text-gray-400">Abrir localização no Google Maps</p>
+                        <p class="text-xs text-gray-400 font-normal">Abrir localização no Google Maps</p>
                     </div>
                 </a>
 
                 <a href="#" id="contact-instagram-btn" target="_blank" rel="noopener noreferrer"
-                   class="custom-card rounded-xl p-4 flex items-center gap-4 group hover:bg-gray-800/50">
-                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-500 text-xl group-hover:scale-110 transition-transform">
+                   class="custom-card rounded-xl p-4 flex items-center gap-4 group">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-500 text-xl group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white transition-all">
                         <i class="fa-brands fa-instagram"></i>
                     </div>
                     <div>
                         <h4 class="font-bold text-white text-sm">Acompanhe nosso Instagram</h4>
-                        <p class="text-xs text-gray-400">Bastidores e dicas automotivas</p>
+                        <p class="text-xs text-gray-400 font-normal">Bastidores e dicas automotivas</p>
                     </div>
                 </a>
 
                 <a href="#" id="contact-phone-btn"
-                   class="custom-card rounded-xl p-4 flex items-center gap-4 group hover:bg-gray-800/50">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-500 text-xl group-hover:scale-110 transition-transform">
+                   class="custom-card rounded-xl p-4 flex items-center gap-4 group">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-500 text-xl group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all">
                         <i class="fa-solid fa-phone"></i>
                     </div>
                     <div>
                         <h4 class="font-bold text-white text-sm">Ligar para a oficina</h4>
-                        <p class="text-xs text-gray-400">Contato telefônico direto</p>
+                        <p class="text-xs text-gray-400 font-normal">Contato telefônico direto</p>
                     </div>
                 </a>
             </div>
         </section>
 
-        <section class="custom-card rounded-2xl p-6 sm:p-8 text-center space-y-4 bg-gradient-to-b from-[#131b2e] to-[#0b0f17] border-red-600/30">
-            <h3 class="text-xl sm:text-2xl font-bold text-white">Precisa de manutenção para seu veículo?</h3>
-            <p class="text-xs sm:text-sm text-gray-400 max-w-md mx-auto">
+        <section class="custom-card rounded-2xl p-6 sm:p-8 text-center space-y-4 bg-gradient-to-b from-[#0a0a0c] to-black border-red-600/40">
+            <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wide">Precisa de manutenção para seu veículo?</h3>
+            <p class="text-xs sm:text-sm text-gray-400 max-w-md mx-auto font-normal">
                 Informe o que seu veículo precisa e entre em contato com nossa equipe para solicitar atendimento com rapidez e segurança.
             </p>
             <div>
-                <a href="#lead-form-section" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-lg shadow-red-600/20 transition-all">
+                <a href="#lead-form-section" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-red-600/30 transition-all uppercase tracking-wider">
                     <i class="fa-solid fa-arrow-up"></i>
                     <span>Solicitar atendimento agora</span>
                 </a>
@@ -366,18 +377,18 @@
 
     </main>
 
-    <footer class="mt-auto border-t border-gray-800 bg-[#080b11] py-8 text-center text-xs text-gray-500 space-y-3">
+    <footer class="mt-auto border-t border-zinc-900 bg-black py-8 text-center text-xs text-gray-500 space-y-3">
         <div class="flex items-center justify-center gap-2">
-            <span class="font-bold text-white text-sm">RD Auto Mecânica</span>
+            <span class="font-black text-white text-sm uppercase tracking-wider">RD Auto Mecânica</span>
             <span class="text-red-500">•</span>
-            <span>SLZ</span>
+            <span class="font-bold text-red-500">SLZ</span>
         </div>
         <p>© <span id="current-year">2026</span> RD Auto Mecânica. Todos os direitos reservados.</p>
-        <p class="text-[10px] text-gray-600">Página de atendimento oficial para Instagram</p>
+        <p class="text-[10px] text-zinc-600 uppercase tracking-widest">Página de atendimento oficial</p>
     </footer>
 
     <a href="#" id="floating-whatsapp" target="_blank" rel="noopener noreferrer" 
-       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-600 hover:bg-green-500 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all hover:scale-110 active:scale-95"
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-600 hover:bg-green-500 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl transition-all hover:scale-110 active:scale-95 border-2 border-green-400"
        title="Falar no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
