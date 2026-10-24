@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem; /* compensa o header fixo */
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-navy-950 font-sans text-silver-100 antialiased;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(900px 500px at 85% -10%, rgba(26, 108, 255, 0.18), transparent 60%),
+      radial-gradient(700px 400px at -10% 20%, rgba(0, 207, 245, 0.10), transparent 60%);
+    background-attachment: fixed;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-cyan-400 ring-offset-2 ring-offset-navy-950;
+  }
+  ::selection {
+    background: rgba(47, 224, 255, 0.35);
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn-primary {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-brand-gradient px-4 py-2.5 text-sm font-semibold text-navy-950 shadow-glow transition hover:brightness-110 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-medium text-silver-100 transition hover:border-cyan-400/60 hover:bg-white/10;
+  }
+  .gradient-text {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+}
+
+/* ---------- Flip card (CSS 3D) ---------- */
+.flip-scene {
+  perspective: 1200px;
+}
+.flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
+/* Reduz movimento: troca a rotação por um fade simples */
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
+    transform-style: flat;
+  }
+  .flip-inner.is-flipped {
+    transform: none;
+  }
+  .flip-face {
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+  }
+  .flip-back {
+    transform: none;
+  }
+  .flip-inner:not(.is-flipped) .flip-back,
+  .flip-inner.is-flipped .flip-front {
+    visibility: hidden;
+  }
+  .flip-inner.is-flipped .flip-back {
+    visibility: visible;
+  }
+}
+
+/* Linhas de circuito decorativas do hero */
+.circuit-line {
+  stroke-dasharray: 6 8;
+  animation: dash 14s linear infinite;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: -280;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .circuit-line {
+    animation: none;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
