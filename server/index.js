@@ -112,9 +112,11 @@ app.post('/api/products/lookup', adminLimiter, requireAdmin, async (req, res) =>
   const productUrl = String(req.body?.productUrl || '').trim()
   if (!isHttpsUrl(affiliateUrl)) return res.status(400).json({ error: 'Informe uma URL https válida.' })
   try {
-    res.json(await lookupProduct({ affiliateUrl, productUrl }))
+    const data = await lookupProduct({ affiliateUrl, productUrl })
+    return res.json(data)
   } catch (e) {
-    res.status(e.status || 500).json({ error: e.message })
+    console.error('[lookup erro]:', e.message)
+    return res.status(e.status || 400).json({ error: e.message || 'Não foi possível buscar as informações do link.' })
   }
 })
 

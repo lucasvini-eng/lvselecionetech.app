@@ -29,8 +29,13 @@ async function request(path, options = {}) {
  */
 export async function fetchProducts() {
   if (USE_API) {
-    const data = await request('/api/products')
-    return Array.isArray(data?.products) ? data.products : []
+    try {
+      const data = await request('/api/products')
+      const list = Array.isArray(data?.products) ? data.products : []
+      return list.length ? list : localProducts
+    } catch {
+      return localProducts
+    }
   }
   return localProducts
 }

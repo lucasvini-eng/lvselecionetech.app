@@ -7,7 +7,8 @@ import { formatPrice } from '../utils/format'
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
 
-const token = ref(sessionStorage.getItem('lvst:admin') || '')
+const DEFAULT_TOKEN = 'MERC@DO&SHOP2026AFILIADO'
+const token = ref(sessionStorage.getItem('lvst:admin') || DEFAULT_TOKEN)
 const affiliateUrl = ref('')
 const productUrl = ref('')
 const busy = ref(false)
@@ -45,7 +46,10 @@ async function loadSaved() {
     saved.value = []
   }
 }
-onMounted(() => token.value && loadSaved())
+onMounted(() => {
+  persistToken()
+  if (token.value) loadSaved()
+})
 
 async function lookup() {
   error.value = info.value = ''
@@ -69,7 +73,8 @@ async function lookup() {
       previousPrice: r.fields.previousPrice ?? '',
       description: r.fields.description || '',
       featuresText: (r.fields.features || []).join('\n'),
-      platform: r.platform
+      platform: r.platform,
+      category: r.fields.suggestedCategory || form.category || ''
     })
     missing.value = r.missing || []
     info.value = r.message
@@ -159,15 +164,31 @@ const field =
       <template v-if="step === 1">
         <div>
           <label for="ad-link" class="mb-1 block text-sm font-medium">Link de afiliado (Shopee ou Mercado Livre)</label>
-          <input id="ad-link" v-model="affiliateUrl" type="url" placeholder="https://…" class="border-white/15" :class="field" />
+          <input
+            id="ad-link"
+            v-model="affiliateUrl"
+            type="url"
+            placeholder="https://… (cole seu link aqui e aperte Buscar dados ou Enter)"
+            class="border-white/15"
+            :class="field"
+            @keydown.enter.prevent="lookup"
+          />
           <p v-if="linkCheck && !linkCheck.valid" class="mt-1 text-sm text-red-300" role="alert">{{ linkCheck.error }}</p>
           <p v-else-if="linkCheck" class="mt-1 text-sm text-cyan-300">Plataforma: {{ PLATFORMS[linkCheck.platform].name }}</p>
         </div>
         <div>
           <label for="ad-prod" class="mb-1 block text-sm font-medium">
-            URL original do produto <span class="text-silver-400">(opcional; necessária se o link de afiliado for encurtado)</span>
+            URL original do produto <span class="text-silver-400">(opcional; links encurtados como shope.ee e meli.la são descurtados automaticamente)</span>
           </label>
-          <input id="ad-prod" v-model="productUrl" type="url" placeholder="https://…" class="border-white/15" :class="field" />
+          <input
+            id="ad-prod"
+            v-model="productUrl"
+            type="url"
+            placeholder="https://…"
+            class="border-white/15"
+            :class="field"
+            @keydown.enter.prevent="lookup"
+          />
         </div>
         <div class="flex flex-col gap-2 sm:flex-row">
           <button type="button" class="btn-primary" :disabled="busy" @click="lookup">

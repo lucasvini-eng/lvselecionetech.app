@@ -5,12 +5,12 @@ import { PLATFORMS } from '../data/products'
  * Ajuste aqui caso as plataformas passem a usar outros domínios.
  */
 const PLATFORM_HOSTS = {
-  shopee: ['shopee.com.br', 'shope.ee'],
-  'mercado-livre': ['mercadolivre.com.br', 'mercadolivre.com', 'mercadolibre.com', 'meli.la']
+  shopee: ['shopee.com.br', 'shope.ee', 's.shopee.com.br', 'shp.ee', 'br.shp.ee'],
+  'mercado-livre': ['mercadolivre.com.br', 'mercadolivre.com', 'mercadolibre.com', 'meli.la', 'produto.mercadolivre.com.br']
 }
 
-/** Hosts conhecidos de links encurtados: podem não ser consultáveis pela API. */
-const SHORT_HOSTS = ['shope.ee', 's.shopee.com.br', 'meli.la']
+/** Hosts conhecidos de links encurtados: agora descurtados automaticamente pelo backend. */
+const SHORT_HOSTS = ['shope.ee', 's.shopee.com.br', 'shp.ee', 'br.shp.ee', 'meli.la']
 
 function hostMatches(host, domain) {
   return host === domain || host.endsWith('.' + domain)
